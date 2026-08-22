@@ -10,67 +10,9 @@ import {
   Play,
   Sparkles,
 } from "lucide-react";
+import { getCaseStudies } from "@/sanity/lib/getCaseStudies";
 
 const CAL_LINK = "https://cal.com/your-username";
-
-export interface CaseStudy {
-  id: string;
-  title: string;
-  situation: string;
-  architectureSummary: string;
-  tags: string[];
-  loomUrl: string;
-  demoUrl: string;
-  githubUrl: string;
-  metrics: string[];
-}
-
-const caseStudies: CaseStudy[] = [
-  {
-    id: "enterprise-multi-agent-pipeline",
-    title: "Enterprise Multi-Agent Pipeline",
-    situation: "A global operations team needed one reliable intelligence layer across fragmented internal workflows.",
-    architectureSummary: "Orchestrated specialist agents with typed handoffs, durable task state, observability, and policy-aware tool access.",
-    tags: ["Multi-agent", "Python", "Cloud infra"],
-    loomUrl: "https://www.loom.com/share/enterprise-multi-agent-pipeline",
-    demoUrl: "https://example.com/sandbox",
-    githubUrl: "https://github.com/dipantimalsina",
-    metrics: ["4 specialist agents", "68% less manual triage", "99.9% workflow uptime"],
-  },
-  {
-    id: "production-grade-rag",
-    title: "Production-Grade RAG",
-    situation: "A regulated product team needed answers grounded in thousands of changing technical documents.",
-    architectureSummary: "Hybrid retrieval with metadata filters, reranking, citation tracing, evaluation sets, and streaming answer delivery.",
-    tags: ["RAG", "Vector DB", "Evaluations"],
-    loomUrl: "https://www.loom.com/share/production-grade-rag",
-    demoUrl: "https://example.com/rag-sandbox",
-    githubUrl: "https://github.com/dipantimalsina",
-    metrics: ["92% retrieval precision", "1.8s median response", "12k+ indexed documents"],
-  },
-  {
-    id: "token-efficient-copilot",
-    title: "Token-Efficient Copilot",
-    situation: "An AI support product was delivering value, but escalating model costs made scale difficult.",
-    architectureSummary: "Context compression, semantic caching, model routing, and structured outputs reduced waste without sacrificing quality.",
-    tags: ["Optimization", "LLM routing", "FastAPI"],
-    loomUrl: "https://www.loom.com/share/token-efficient-copilot",
-    demoUrl: "https://example.com/copilot",
-    githubUrl: "https://github.com/dipantimalsina",
-    metrics: ["41% lower token spend", "3 model tiers", "24/7 API availability"],
-  },
-  {
-    id: "agent-observability-layer",
-    title: "Agent Observability Layer",
-    situation: "A product team needed to understand where autonomous workflows failed before shipping them to customers.",
-    architectureSummary: "Trace-first instrumentation, prompt/version tracking, replayable runs, and human review queues made quality measurable.",
-    tags: ["Observability", "Tracing", "AI QA"],
-    loomUrl: "https://www.loom.com/share/agent-observability-layer",
-    demoUrl: "https://example.com/observability",
-    githubUrl: "https://github.com/dipantimalsina",
-    metrics: ["100% trace coverage", "6 failure modes tracked", "2x faster QA cycles"],
-  },
-];
 
 const capabilities = [
   "Multi-Agent Orchestration",
@@ -79,7 +21,9 @@ const capabilities = [
   "LLM Token Optimization",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const caseStudies = await getCaseStudies();
+
   return (
     <main>
       <section className="hero-section" id="top">
