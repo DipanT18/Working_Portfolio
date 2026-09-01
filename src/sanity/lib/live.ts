@@ -4,6 +4,18 @@
 import { defineLive } from "next-sanity/live";
 import { client } from './client'
 
-export const { sanityFetch, SanityLive } = defineLive({
-  client,
-});
+const live =
+  client === null
+    ? {
+        sanityFetch: async function sanityFetchFallback() {
+          return { data: null };
+        },
+        SanityLive: function SanityLiveFallback() {
+          return null;
+        },
+      }
+    : defineLive({
+        client,
+      });
+
+export const { sanityFetch, SanityLive } = live;
