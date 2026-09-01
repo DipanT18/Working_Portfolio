@@ -1,0 +1,215 @@
+import {defineArrayMember, defineField, defineType} from 'sanity'
+
+export const homePageType = defineType({
+  name: 'homePage',
+  title: 'Homepage',
+  type: 'document',
+  fields: [
+    defineField({name: 'navWordmark', title: 'Nav Wordmark', type: 'string', validation: (rule) => rule.required()}),
+    defineField({
+      name: 'navLinks',
+      title: 'Nav Links',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({name: 'label', title: 'Label', type: 'string', validation: (rule) => rule.required()}),
+            defineField({name: 'href', title: 'Link', type: 'string', validation: (rule) => rule.required()}),
+          ],
+        }),
+      ],
+    }),
+    defineField({name: 'availabilityText', title: 'Availability Text', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'availabilityHref', title: 'Availability Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'navMenuHref', title: 'Mobile Menu Link', type: 'string', validation: (rule) => rule.required()}),
+
+    defineField({name: 'heroEyebrow', title: 'Hero Eyebrow', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroEyebrowMeta', title: 'Hero Eyebrow Meta', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroHeadingLead', title: 'Hero Heading Lead', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroHeadingEmphasis', title: 'Hero Heading Emphasis', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroHeadingTrail', title: 'Hero Heading Trail', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroIntro', title: 'Hero Intro', type: 'text', rows: 3, validation: (rule) => rule.required()}),
+    defineField({name: 'heroPrimaryCtaLabel', title: 'Hero Primary CTA Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroPrimaryCtaHref', title: 'Hero Primary CTA Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroCircleCtaHref', title: 'Hero Circle CTA Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroScrollLabel', title: 'Hero Scroll Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroProgressLabel', title: 'Hero Progress Label', type: 'string', validation: (rule) => rule.required()}),
+
+    defineField({name: 'heroFigureName', title: 'Hero Figure Name', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroFigureMonogram', title: 'Hero Figure Monogram', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroFigureCaptionLineOne', title: 'Hero Figure Caption Line 1', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'heroFigureCaptionLineTwo', title: 'Hero Figure Caption Line 2', type: 'string', validation: (rule) => rule.required()}),
+
+    defineField({name: 'aboutSectionNumber', title: 'About Section Number', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'aboutSectionTitle', title: 'About Section Title', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'aboutHeadingLead', title: 'About Heading Lead', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'aboutHeadingEmphasis', title: 'About Heading Emphasis', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'aboutParagraphOne', title: 'About Paragraph One', type: 'text', rows: 3, validation: (rule) => rule.required()}),
+    defineField({name: 'aboutParagraphTwo', title: 'About Paragraph Two', type: 'text', rows: 4, validation: (rule) => rule.required()}),
+    defineField({name: 'aboutConversationLabel', title: 'About Conversation Link Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'aboutConversationHref', title: 'About Conversation Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({
+      name: 'capabilities',
+      title: 'Capabilities',
+      type: 'array',
+      of: [defineArrayMember({type: 'string'})],
+      validation: (rule) => rule.required().min(1),
+    }),
+
+    defineField({name: 'workSectionNumber', title: 'Work Section Number', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'workSectionTitle', title: 'Work Section Title', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'workCountSuffix', title: 'Work Count Suffix', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'workHeadingLead', title: 'Work Heading Lead', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'workHeadingEmphasis', title: 'Work Heading Emphasis', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'workDescription', title: 'Work Description', type: 'text', rows: 3, validation: (rule) => rule.required()}),
+    defineField({name: 'caseStudyWatchLabel', title: 'Case Study Watch Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'caseStudyDemoLabel', title: 'Case Study Demo Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'caseStudyGithubLabel', title: 'Case Study GitHub Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'caseStudyArtMarkPrimary', title: 'Case Study Art Mark (Odd Cards)', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'caseStudyArtMarkSecondary', title: 'Case Study Art Mark (Even Cards)', type: 'string', validation: (rule) => rule.required()}),
+
+    defineField({name: 'processSectionNumber', title: 'Process Section Number', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'processSectionTitle', title: 'Process Section Title', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'processHeadingLead', title: 'Process Heading Lead', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'processHeadingEmphasis', title: 'Process Heading Emphasis', type: 'string', validation: (rule) => rule.required()}),
+    defineField({
+      name: 'processSteps',
+      title: 'Process Steps',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required()}),
+            defineField({name: 'description', title: 'Description', type: 'text', rows: 3, validation: (rule) => rule.required()}),
+          ],
+        }),
+      ],
+      validation: (rule) => rule.required().min(1),
+    }),
+
+    defineField({name: 'quoteLead', title: 'Quote Lead', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'quoteEmphasis', title: 'Quote Emphasis', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'quoteAuthor', title: 'Quote Author', type: 'string', validation: (rule) => rule.required()}),
+
+    defineField({name: 'contactSectionNumber', title: 'Contact Section Number', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactSectionTitle', title: 'Contact Section Title', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactHeadingLead', title: 'Contact Heading Lead', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactHeadingEmphasis', title: 'Contact Heading Emphasis', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactPrimaryCtaLabel', title: 'Contact Primary CTA Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactPrimaryCtaHref', title: 'Contact Primary CTA Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactEmailLabel', title: 'Contact Email Label', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'contactEmailHref', title: 'Contact Email Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'footerScreenLineOne', title: 'Footer Screen Line 1', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'footerScreenHighlight', title: 'Footer Screen Highlight', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'footerScreenLineThree', title: 'Footer Screen Line 3', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'footerCopyright', title: 'Footer Copyright', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'footerLocation', title: 'Footer Location', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'socialGithubHref', title: 'Social GitHub Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'socialEmailHref', title: 'Social Email Link', type: 'string', validation: (rule) => rule.required()}),
+    defineField({name: 'socialBackToTopHref', title: 'Back To Top Link', type: 'string', validation: (rule) => rule.required()}),
+  ],
+  initialValue: {
+    navWordmark: 'DT',
+    navLinks: [
+      {label: 'Work', href: '#work'},
+      {label: 'About', href: '#about'},
+      {label: 'Contact', href: '#contact'},
+    ],
+    availabilityText: 'Available for select projects',
+    availabilityHref: 'https://cal.com/your-username',
+    navMenuHref: '#contact',
+
+    heroEyebrow: 'AI systems engineer',
+    heroEyebrowMeta: '2024—26',
+    heroHeadingLead: 'Building Production-Grade',
+    heroHeadingEmphasis: 'Multi-Agent Systems',
+    heroHeadingTrail: '& Enterprise RAG.',
+    heroIntro:
+      'I design and ship dependable AI infrastructure for teams turning ambitious language-model ideas into measurable business systems.',
+    heroPrimaryCtaLabel: 'Book 15-Min Strategy Call',
+    heroPrimaryCtaHref: 'https://cal.com/your-username',
+    heroCircleCtaHref: '#work',
+    heroScrollLabel: 'Scroll to explore',
+    heroProgressLabel: '01 / 05',
+
+    heroFigureName: 'DIPAN\nTIMALSINA',
+    heroFigureMonogram: 'DT',
+    heroFigureCaptionLineOne: 'Kathmandu / Worldwide',
+    heroFigureCaptionLineTwo: 'Engineering with intent.',
+
+    aboutSectionNumber: '(01)',
+    aboutSectionTitle: 'Approach',
+    aboutHeadingLead: 'Useful can be',
+    aboutHeadingEmphasis: 'intelligent.',
+    aboutParagraphOne:
+      "I'm Dipan — an AI Systems Engineer building the connective tissue between models, data, and real-world operations.",
+    aboutParagraphTwo:
+      'From retrieval quality to infrastructure reliability, I care about the details that make AI systems useful in production. No demos that stop at the wow moment. Just clear architecture, measurable outcomes, and room to grow.',
+    aboutConversationLabel: 'Start a conversation',
+    aboutConversationHref: 'mailto:hello@dipantimalsina.com',
+    capabilities: [
+      'Multi-Agent Orchestration',
+      'Vector DBs & RAG',
+      'FastAPI & Cloud Infra',
+      'LLM Token Optimization',
+    ],
+
+    workSectionNumber: '(02)',
+    workSectionTitle: 'Selected case studies',
+    workCountSuffix: 'systems',
+    workHeadingLead: 'Built for',
+    workHeadingEmphasis: 'the real world.',
+    workDescription:
+      'AI systems designed around reliability, observability, and the people who depend on them.',
+    caseStudyWatchLabel: 'Watch 2-Min Loom',
+    caseStudyDemoLabel: 'Live Sandbox',
+    caseStudyGithubLabel: 'GitHub Repo',
+    caseStudyArtMarkPrimary: 'AI',
+    caseStudyArtMarkSecondary: 'RAG',
+
+    processSectionNumber: '(03)',
+    processSectionTitle: 'Process',
+    processHeadingLead: 'Make it',
+    processHeadingEmphasis: 'matter.',
+    processSteps: [
+      {
+        title: 'Map the system',
+        description:
+          'Find the actual constraints across data, models, users, and infrastructure before choosing a tool.',
+      },
+      {
+        title: 'Build for failure',
+        description:
+          'Use typed boundaries, evaluations, traces, and fallbacks so the happy path is never the whole plan.',
+      },
+      {
+        title: 'Measure the impact',
+        description:
+          'Ship with clear quality, latency, and cost metrics — then improve what the system reveals.',
+      },
+    ],
+
+    quoteLead: 'The best AI system is the one',
+    quoteEmphasis: 'people can rely on.',
+    quoteAuthor: 'Dipan Timalsina',
+
+    contactSectionNumber: '(04)',
+    contactSectionTitle: 'Get in touch',
+    contactHeadingLead: 'Have a hard',
+    contactHeadingEmphasis: 'problem?',
+    contactPrimaryCtaLabel: 'Book 15-Min Strategy Call',
+    contactPrimaryCtaHref: 'https://cal.com/your-username',
+    contactEmailLabel: 'hello@dipantimalsina.com',
+    contactEmailHref: 'mailto:hello@dipantimalsina.com',
+    footerScreenLineOne: "Let's make",
+    footerScreenHighlight: 'something',
+    footerScreenLineThree: 'worth shipping.',
+    footerCopyright: '© Dipan Timalsina 2026',
+    footerLocation: 'Kathmandu, Nepal',
+    socialGithubHref: 'https://github.com/dipantimalsina',
+    socialEmailHref: 'mailto:hello@dipantimalsina.com',
+    socialBackToTopHref: '#top',
+  },
+})
