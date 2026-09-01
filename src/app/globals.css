@@ -13,7 +13,7 @@
   --color-border: var(--border);
 }
 
-:root { --background: #f1eee8; --foreground: #1e1e1c; --primary: #e7442e; --primary-foreground: #f1eee8; --muted-foreground: #746f68; --border: #c9c3ba; --ink: #1e1e1c; --paper: #f1eee8; --red: #e7442e; --slate: #75808a; --soft: #d9d5ce; }
+:root { --background: #f1eee8; --foreground: #1e1e1c; --primary: #e7442e; --primary-foreground: #f1eee8; --muted-foreground: #746f68; --border: #c9c3ba; --ink: #1e1e1c; --paper: #f1eee8; --red: #e7442e; --slate: #75808a; --soft: #d9d5ce; --font-geist-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --font-geist-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 @layer base { * { @apply border-border; } html { @apply scroll-smooth bg-background; } body { @apply bg-background text-foreground antialiased; } a { @apply transition-opacity; } a:hover { opacity: .68; } }
 
